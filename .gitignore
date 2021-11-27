@@ -14,3 +14,4 @@ target
 *.versionsBackup
 
 *.iml
+.ds_store
