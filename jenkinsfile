@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    tools {
+        // Install the Maven version configured as "jana" and add it to the path.
+        maven "jana"
+    }
+    stages {
+        stage ('Compile Stage') {
+
+            steps {
+                    git 'https://github.com/janardhan3333/game-of-life.git'
+                    sh 'mvn clean compile'
+                }
+            }
+
+        stage ('Testing Stage') {
+
+            steps {
+                git 'https://github.com/janardhan3333/game-of-life.git'
+                    sh 'mvn test'
+                }
+            }
+        
+
+
+        stage ('Package Stage') {
+            steps {
+                git 'https://github.com/janardhan3333/game-of-life.git'
+                    sh 'mvn package'
+                }
+            }
+        }
+    }
